@@ -1,0 +1,20 @@
+ja:
+  books: "本一覧"
+  title: "タイトル"
+  memo: "内容"
+  author: "著者"
+  picture: "画像"
+  show this book: "本の詳細"
+  new book: "新しい本を追加"
+  edit this book: "本の修正"
+  back to books: "本一覧"
+  destroy this book: "本を削除"
+  editing book: "本の修正"
+  helpers:
+    submit:
+      create: "作成"
+      update: "更新"
+  notice:
+    create: "本を追加しました"
+    update: "本を修正しました"
+    destroy: "本を削除しました"
