@@ -1,0 +1,12 @@
+<%# _book.html.erbを参考にする %>
+<div>
+  <p>
+    username:<%= link_to user.username, user_path(user) %>
+  </p>
+  <p>
+    profile:<%= user.profile %>
+  </p>
+  <p>
+    email:<%= user.email %>
+  </p>
+</div>
