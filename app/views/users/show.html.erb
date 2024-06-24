@@ -1,17 +1,15 @@
 <h1>User</h1>
 
 <div id="users" class="show-item">
+  <p>
+    <%= User.human_attribute_name("username") %>:<strong><%= @user.username %></strong>
+  </p>
 
-<p>
-<strong><%= @user.username %></strong>
-</p>
+  <p>
+    <%= User.human_attribute_name("profile") %>:<strong><%= @user.zipcode %></strong>
+  </p>
 
-<p>
-<strong><%= @user.zipcode %></strong>
-</p>
-
-<p>
-<strong><%= @user.profile %></strong>
-</p>
-
+  <p>
+    <%= User.human_attribute_name("email") %>:<strong><%= @user.profile %></strong>
+  </p>
 </div>
