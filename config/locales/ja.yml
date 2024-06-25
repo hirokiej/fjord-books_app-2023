@@ -1,0 +1,33 @@
+ja:
+  activerecord:
+    models:
+      book: "投稿一覧"
+    attributes:
+      book:
+        books: "一覧"
+        title: "タイトル"
+        memo: "内容"
+        author: "著者"
+        picture: "画像"
+  helpers:
+    submit:
+      create: "作成"
+      update: "更新"
+  notice:
+    create: "%{title}を追加しました"
+    update: "%{title}を修正しました"
+    destroy: "%{title}を削除しました"
+  books:
+    edit:
+      title: "修正する"
+    new:
+      title: "追加する"
+  layouts:
+    application:
+      title: 本のアプリ
+  show_book: "詳細"
+  new_book: "追加する"
+  edit_book: "修正する"
+  back_to_books: "一覧に戻る"
+  destroy_book: "削除する"
+  editing_book: "修正する"
