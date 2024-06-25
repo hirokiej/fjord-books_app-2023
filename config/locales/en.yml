@@ -47,6 +47,13 @@ en:
     create: "%{title} was successfully created."
     update: "%{title} was successfully updated."
     destroy: "%{title} was successfully destroyed."
+  books:
+    edit:
+      title: "Editing Book"
+    new:
+      title: "New Book"
+  application:
+    title: BooksAPP
   show_book: "Show this post"
   new_book: "New post"
   edit_book: "Edit this post"

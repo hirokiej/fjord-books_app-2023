@@ -17,6 +17,14 @@ ja:
     create: "%{title}を追加しました"
     update: "%{title}を修正しました"
     destroy: "%{title}を削除しました"
+  books:
+    edit:
+      title: "修正する"
+    new:
+      title: "追加する"
+  layouts:
+    application:
+      title: 本のアプリ
   show_book: "詳細"
   new_book: "追加する"
   edit_book: "修正する"
