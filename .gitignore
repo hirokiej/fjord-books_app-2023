@@ -36,4 +36,4 @@
 
 /public/uploads
 
-.env
+/.env
