@@ -48,8 +48,8 @@ end
     profile: Faker::User.profile,
     zipcode: Faker::User.zipcode,
     email: Faker::User.email,
-    password: "aaaaaa",
-    password_confirmation: "aaaaaa"
+    password: 'aaaaaa',
+    password_confirmation: 'aaaaaa'
   )
 end
 
