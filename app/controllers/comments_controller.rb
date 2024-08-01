@@ -50,8 +50,13 @@ class CommentsController < ApplicationController
   def set_comment
     @comment = Comment.find(params[:id])
   end
+
   def set_commentable
-    @commentable = Book.find(params[:book_id])
+    if params[:book_id]
+      @commentable = Book.find(params[:book_id])
+    else params[:report_id]
+      @commentable = Report.find(params[:report_id])
+    end
   end
 
   def comment_params
