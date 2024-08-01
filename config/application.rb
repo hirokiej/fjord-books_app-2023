@@ -20,3 +20,7 @@ module BooksApp
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+class Application < Rails::Application
+  config.time_zone = 'Tokyo'
+end

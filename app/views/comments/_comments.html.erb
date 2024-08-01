@@ -1,10 +1,16 @@
 <strong>comment</strong>
 
 <% commentable.comments.each do |comment| %>
-  <p><strong><%= comment.user.name.present? ? comment.user.name : comment.user.email %></strong></p>
+  <p>
+    <strong><%= comment.user.name.present? ? comment.user.name : comment.user.email %></strong>
+    <%= comment.created_at.to_s(:datetime_jp) %>
+  </p>
   <p><%= comment.content %></p>
-  <%= link_to '編集', edit_polymorphic_path([commentable, comment]) %>
-  <%= link_to '削除', [commentable, comment], data: { turbo_method: :delete } %>
+  <% if current_user == comment.user %>
+   <%= link_to '編集', edit_polymorphic_path([commentable, comment]) %>
+   <%= link_to '削除', [commentable, comment], data: { turbo_method: :delete } %>
+  <% end %>
+
 <% end %>
 
 <%= form_with model: [commentable, commentable.comments.new] do |f| %>

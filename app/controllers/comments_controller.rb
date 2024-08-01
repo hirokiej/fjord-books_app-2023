@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :set_commentable
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def index
-    @comments = Comment.all
+    @comments = Comment.order(:id)
   end
 
   def create
@@ -25,10 +27,12 @@ class CommentsController < ApplicationController
       if @comment.update(comment_params)
         redirect_to @commentable
       else
-        render :edit
+        redirect_to @commentable
+        flash[:alert] = "編集できません"
       end
-      flash[:alert] = お前本人じゃない
+    else
       redirect_to @commentable
+      flash[:alert] = "あなた本人違う"
     end
   end
 
