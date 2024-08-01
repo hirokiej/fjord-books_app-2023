@@ -1,0 +1,13 @@
+<strong>comment</strong>
+
+<% commentable.comments.each do |comment| %>
+  <p><strong><%= comment.user.name.present? ? comment.user.name : comment.user.email %></strong></p>
+  <p><%= comment.content %></p>
+  <%= link_to '編集', edit_polymorphic_path([commentable, comment]) %>
+  <%= link_to '削除', [commentable, comment], data: { turbo_method: :delete } %>
+<% end %>
+
+<%= form_with model: [commentable, commentable.comments.new] do |f| %>
+  <%= f.text_field :content, required: true %>
+  <%= f.submit 'create' %>
+<% end %>
