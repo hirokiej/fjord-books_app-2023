@@ -235,6 +235,9 @@ en:
       notice_create: "%{name} was successfully created."
       notice_update: "%{name} was successfully updated."
       notice_destroy: "%{name} was successfully destroyed."
+      alert_update: "%{name} could not updated."
+      alert_authorized: "You are not authorized to perform this action."
+      alert_destroy: "%{name} could not destroyed."
   layouts:
     application:
       menu: Menu

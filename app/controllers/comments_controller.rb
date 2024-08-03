@@ -2,7 +2,7 @@
 
 class CommentsController < ApplicationController
   before_action :set_commentable
-  before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :set_comment, only: %i[edit update destroy]
 
   def index
     @comments = Comment.order(:id)
@@ -13,36 +13,33 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to @commentable, notice: 'Comment was succsessfully created'
+      redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @comment.user == current_user
       if @comment.update(comment_params)
-        redirect_to @commentable
+        redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
       else
-        redirect_to @commentable
-        flash[:alert] = "編集できません"
+        redirect_to @commentable, alert: t('controllers.common.alert_update', name: Comment.model_name.human)
       end
     else
-      redirect_to @commentable
-      flash[:alert] = "あなた本人違う"
+      redirect_to @commentable, alert: t('controllers.common.alert_authorized', name: Comment.model_name.human)
     end
   end
 
   def destroy
     if @comment.user == current_user
       @comment.destroy
+      redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
     else
-      flash[:alert] = "消せません"
+      redirect_to @commentable, alert: t('controllers.common.alert_destroy', name: Comment.model_name.human)
     end
-    redirect_to @commentable
   end
 
   private
@@ -52,11 +49,7 @@ class CommentsController < ApplicationController
   end
 
   def set_commentable
-    if params[:book_id]
-      @commentable = Book.find(params[:book_id])
-    else params[:report_id]
-      @commentable = Report.find(params[:report_id])
-    end
+    @commentable = params[:book_id] ? Book.find(params[:book_id]) : Report.find(params[:report_id])
   end
 
   def comment_params

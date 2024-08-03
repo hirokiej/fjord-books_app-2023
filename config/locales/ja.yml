@@ -207,6 +207,9 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+      alert_update: "%{name}は更新できませんでした"
+      alert_authorized: "この操作を行う権限がありません。"
+      alert_destroy: "%{name}は削除できませんでした。"
   layouts:
     application:
       menu: メニュー
