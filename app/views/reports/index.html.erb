@@ -13,4 +13,4 @@
   <% end %>
 </div>
 
-<%= link_to "New report", new_report_path %>
+<%= link_to t('views.common.new', name: Report.model_name.human.downcase), new_report_path %>
