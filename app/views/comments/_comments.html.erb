@@ -2,15 +2,24 @@
 
 <% commentable.comments.each do |comment| %>
   <p>
-    <strong><%= comment.user.name.present? ? comment.user.name : comment.user.email %></strong>
-    <%= comment.created_at.to_s(:datetime_jp) %>
+    <strong>
+      <% if comment.user.present? %>
+        <% if comment.user.name.present? %>
+          <%= comment.user.name %>
+        <% else %>
+          <%= comment.user.email %>
+        <% end %>
+      <% else %>
+        <%= t('views.common.deleted_user') %>
+      <% end %>
+    </strong>
+      <%= comment.created_at.to_fs(:datetime_jp) %>
   </p>
   <p><%= comment.content %></p>
   <% if current_user == comment.user %>
    <%= link_to t('views.common.edit', name: Comment.model_name.human.downcase), edit_polymorphic_path([commentable, comment]) %>
    <%= link_to t('views.common.destroy', name: Comment.model_name.human.downcase), [commentable, comment], data: { turbo_method: :delete } %>
   <% end %>
-
 <% end %>
 
 <%= form_with model: [commentable, commentable.comments.new] do |form| %>

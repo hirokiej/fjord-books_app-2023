@@ -223,6 +223,7 @@ en:
       new: "New %{name}"
       back: "Back to %{name}"
       delete_confirm: "Are you sure?"
+      deleted_user: Deleted User
       title_index: "%{name}"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
