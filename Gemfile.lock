@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 97cfd1a1b0522a16b402e9d14c3248076b24c942
+  branch: main
+  specs:
+    faker (3.4.2)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -124,8 +132,6 @@ GEM
       rubocop
       smart_properties
     erubi (1.12.0)
-    faker (3.2.0)
-      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -326,7 +332,7 @@ DEPENDENCIES
   devise-i18n
   dotenv-rails
   erb_lint
-  faker
+  faker!
   i18n_generators
   importmap-rails
   jbuilder

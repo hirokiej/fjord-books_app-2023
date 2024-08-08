@@ -44,10 +44,9 @@ end
 
 50.times do
   User.create!(
-    username: Faker::User.username,
-    profile: Faker::User.profile,
-    zipcode: Faker::User.zipcode,
-    email: Faker::User.email,
+    username: Faker::Internet.username,
+    zipcode: '1234567',
+    email: Faker::Internet.email,
     password: 'aaaaaa',
     password_confirmation: 'aaaaaa'
   )
