@@ -13,7 +13,7 @@
         <%= t('views.common.deleted_user') %>
       <% end %>
     </strong>
-      <%= comment.created_at.to_fs(:datetime_jp) %>
+      <%= l comment.created_at, format: :long %>
   </p>
   <p><%= comment.content %></p>
   <% if current_user == comment.user %>
