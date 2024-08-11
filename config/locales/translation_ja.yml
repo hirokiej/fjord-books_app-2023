@@ -9,3 +9,11 @@ ja:
         memo: メモ
         picture: 画像
         title: タイトル
+      user:
+        username: 名前
+        profile: プロフィール
+        zipcode: 郵便番号
+  devise:
+    registrations:
+      edit:
+        edit_user: "プロフィール変更"
