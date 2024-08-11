@@ -20,7 +20,7 @@ en:
       confirmation_instructions:
         subject: "Confirmation instructions"
       reset_password_instructions:
-        greeting: "Hello, %{email}!"
+        greeting: "Hello, %{recipient}!"
         subject: "Reset password instructions"
         instruction: "Someone has requested a link to change your password. You can do this through the link below."
         instruction_2: "If you didn't request this, please ignore this email."

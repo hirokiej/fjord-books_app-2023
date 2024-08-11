@@ -50,21 +50,21 @@ ja:
     mailer:
       confirmation_instructions:
         action: メールアドレスの確認
-        greeting: "%{email}様"
+        greeting: "%{recipient}様"
         instruction: 以下のリンクをクリックし、メールアドレスの確認手続を完了させてください。
         subject: メールアドレス確認メール
       email_changed:
         greeting: こんにちは、%{remail}様。
-        message: メールアドレスの（%{email}）変更が完了したため、メールを送信しています。
-        message_unconfirmed: メールアドレスが（%{email}）変更されたため、メールを送信しています。
+        message: メールアドレスの（%{recipient}）変更が完了したため、メールを送信しています。
+        message_unconfirmed: メールアドレスが（%{recipient}）変更されたため、メールを送信しています。
         subject: メール変更完了
       password_change:
-        greeting: "%{email}様"
+        greeting: "%{recipient}様"
         message: パスワードが再設定されました。
         subject: パスワードの変更について
       reset_password_instructions:
         action: パスワード変更
-        greeting: "%{email}様"
+        greeting: "%{recipient}様"
         instruction: パスワード再設定の依頼を受けたため、メールを送信しています。下のリンクからパスワードの再設定ができます。
         instruction_2: パスワード再設定の依頼をしていない場合、このメールを無視してください。
         instruction_3: パスワードの再設定は、上のリンクから新しいパスワードを登録するまで完了しません。
@@ -72,7 +72,7 @@ ja:
         change_password_link: パスワードを変更する
       unlock_instructions:
         action: アカウントのロック解除
-        greeting: "%{email}様"
+        greeting: "%{recipient}様"
         instruction: アカウントのロックを解除するには下のリンクをクリックしてください。
         message: ログイン失敗が繰り返されたため、アカウントはロックされています。
         subject: アカウントのロック解除について
@@ -99,7 +99,7 @@ ja:
       edit:
         are_you_sure: 本当によろしいですか？
         cancel_my_account: アカウント削除
-        currently_waiting_confirmation_for_email: "%{email} の確認待ち"
+        currently_waiting_confirmation_for_email: "%{recipient} の確認待ち"
         leave_blank_if_you_don_t_want_to_change_it: 空欄のままなら変更しません
         title: "%{resource}編集"
         unhappy: 気に入りません
