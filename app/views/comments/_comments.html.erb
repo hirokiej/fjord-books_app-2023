@@ -1,0 +1,24 @@
+<strong><%= Comment.model_name.human %></strong>
+
+<% commentable.comments.each do |comment| %>
+  <p>
+    <strong>
+      <% if comment.user.present? %>
+        <%= comment.user.name_or_email %>
+      <% else %>
+        <%= t('views.common.deleted_user') %>
+      <% end %>
+    </strong>
+      <%= l comment.created_at, format: :long %>
+  </p>
+  <p><%= comment.content %></p>
+  <% if current_user == comment.user %>
+   <%= link_to t('views.common.edit', name: Comment.model_name.human.downcase), edit_polymorphic_path([commentable, comment]) %>
+   <%= link_to t('views.common.destroy', name: Comment.model_name.human.downcase), [commentable, comment], data: { turbo_method: :delete } %>
+  <% end %>
+<% end %>
+
+<%= form_with model: [commentable, commentable.comments.new] do |form| %>
+  <%= form.text_field :content, required: true %>
+  <%= form.submit %>
+<% end %>
