@@ -67,7 +67,7 @@ group :development do
 
   gem 'dotenv-rails'
   gem 'erb_lint', require: false
-  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
+  gem 'faker'
   gem 'i18n_generators'
   gem 'letter_opener_web', '~> 3.0'
   # 以下のPRがリリースされたら最新のrubocopを使うようにする
