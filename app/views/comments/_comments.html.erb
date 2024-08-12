@@ -4,11 +4,7 @@
   <p>
     <strong>
       <% if comment.user.present? %>
-        <% if comment.user.name.present? %>
-          <%= comment.user.name %>
-        <% else %>
-          <%= comment.user.email %>
-        <% end %>
+        <%= comment.user.name_or_email %>
       <% else %>
         <%= t('views.common.deleted_user') %>
       <% end %>
