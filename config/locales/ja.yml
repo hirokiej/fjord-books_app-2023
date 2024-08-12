@@ -205,3 +205,19 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+  users:
+    index:
+      users: "ユーザー一覧"
+    show:
+      user: "ユーザー"
+  registrations:
+    edit:
+      edit_user: プロフィール変更
+  navbar:
+    logged_in_as: "ログイン中"
+    home: "ホーム"
+    users: "ユーザー一覧"
+    edit_profile: "プロフィール変更"
+    logout: "ログアウト"
+    sign_up: "アカウント登録"
+    login: "ログイン"

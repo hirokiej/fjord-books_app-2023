@@ -11,6 +11,20 @@
   </head>
 
   <body class="<%= params[:action] %>">
+
+  <p class="navbar-text float-right">
+<% if user_signed_in? %>
+  <%= t('navbar.logged_in_as') %>: <strong><%= link_to current_user.username, user_path(current_user), class: "navbar-link" %></strong>.
+  <%= link_to t('navbar.home'), books_path, class: "navbar-link" %> |
+  <%= link_to t('navbar.users'), users_path, class: "navbar-link" %> |
+  <%= link_to t('navbar.edit_profile'), edit_user_registration_path, class: "navbar-link" %> |
+  <%= link_to t('navbar.logout'), destroy_user_session_path, data: { turbo_method: :delete }, class: "navbar-link" %>
+<% else %>
+  <%= link_to t('navbar.sign_up'), new_user_registration_path, class: "navbar-link" %> |
+  <%= link_to t('navbar.login'), new_user_session_path, class: "navbar-link" %>
+<% end %>
+</p>
+
     <%= yield %>
   </body>
 </html>
