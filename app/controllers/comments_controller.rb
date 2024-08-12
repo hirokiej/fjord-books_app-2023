@@ -3,6 +3,7 @@
 class CommentsController < ApplicationController
   before_action :set_commentable
   before_action :set_comment, only: %i[edit update destroy]
+  before_action :ensure_user, only: %i[edit update destroy]
 
   def index
     @comments = Comment.order(:id)
@@ -22,24 +23,16 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    if @comment.user == current_user
-      if @comment.update(comment_params)
-        redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
-      else
-        redirect_to @commentable, alert: t('controllers.common.alert_update', name: Comment.model_name.human)
-      end
+    if @comment.update(comment_params)
+      redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
-      redirect_to @commentable, alert: t('controllers.common.alert_authorized', name: Comment.model_name.human)
+      redirect_to @commentable, alert: t('controllers.common.alert_update', name: Comment.model_name.human)
     end
   end
 
   def destroy
-    if @comment.user == current_user
-      @comment.destroy
-      redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
-    else
-      redirect_to @commentable, alert: t('controllers.common.alert_destroy', name: Comment.model_name.human)
-    end
+    @comment.destroy
+    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private
@@ -54,5 +47,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def ensure_user
+    redirect_to @commentable, alert: t('controllers.common.alert_destroy', name: Comment.model_name.human) unless @comment.user == current_user
   end
 end
