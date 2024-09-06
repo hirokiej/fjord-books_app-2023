@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Report < ApplicationRecord
-  after_save :mentions_id
+  after_save :create_mentions_for_reports
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
 
@@ -22,14 +22,12 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def mentions_id
+  def create_mentions_for_reports
     Mention.where(mentioning_report_id: id).destroy_all
-    urls = content.scan(%r{http://localhost:3000/reports/\d+})
-    return unless urls.any?
+    matched_id = content.scan(%r{http://localhost:3000/reports/(\d+)})
 
-    urls.each do |url|
-      mentioned_id = url.match(%r{reports/(\d+)})[1]
-      Mention.create(mentioning_report_id: id, mentioned_report_id: mentioned_id)
+    matched_id.each do |mentioned_id|
+      Mention.create(mentioning_report_id: id, mentioned_report_id: mentioned_id[0])
     end
   end
 end
