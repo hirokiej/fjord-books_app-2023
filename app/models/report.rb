@@ -27,7 +27,7 @@ class Report < ApplicationRecord
     matched_id = content.scan(%r{http://localhost:3000/reports/(\d+)})
 
     matched_id.each do |mentioned_id|
-      Mention.create(mentioning_report_id: id, mentioned_report_id: mentioned_id[0])
+      Mention.create!(mentioning_report_id: id, mentioned_report_id: mentioned_id[0])
     end
   end
 end

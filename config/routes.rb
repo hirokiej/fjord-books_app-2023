@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :reports do
     scope module: :reports do
       resources :comments, only: :create
-      resources :mentions
     end
   end
   resources :comments, only: :destroy
