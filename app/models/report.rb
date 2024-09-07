@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Report < ApplicationRecord
-  after_save :create_mentions_for_reports
+  after_save :update_mentions_for_reports
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
 
