@@ -22,12 +22,12 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def create_mentions_for_reports
+  def update_mentions_for_reports
     Mention.where(mentioning_report_id: id).destroy_all
     matched_id = content.scan(%r{http://localhost:3000/reports/(\d+)})
 
     matched_id.each do |mentioned_id|
-      Mention.create!(mentioning_report_id: id, mentioned_report_id: mentioned_id[0])
+      active_mentions.create!(mentioned_report_id: mentioned_id[0])
     end
   end
 end
