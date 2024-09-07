@@ -239,6 +239,9 @@ en:
     menu:
       menu: Menu
       sign_in_as: "Sign-in as %{user}"
+  shared:
+    mentions:
+      linked_reports: "This report is linked from the following reports."
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:

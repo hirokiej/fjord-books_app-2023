@@ -3,7 +3,7 @@
 <div class="show-item">
   <%= render @report %>
 </div>
-
+<%= render 'shared/mentions', mentioned_reports: @report.mentioned_reports %>
 <%= render 'shared/comments', commentable: @report %>
 
 <nav class="page-nav">
