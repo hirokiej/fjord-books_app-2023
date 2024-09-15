@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-alice:
+alice_report:
   user: alice
   title: 超入門読んだ！
   content: めちゃよかった！
 
-Bob:
+bob_report:
   user: bob
   title: チェリー本読みました。
   content: これは何周でも読みたい。
