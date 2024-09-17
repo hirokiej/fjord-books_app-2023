@@ -51,10 +51,13 @@ class ReportsTest < ApplicationSystemTestCase
   test 'should destroy Report' do
     visit report_url(@report)
 
+    assert_text '超入門読んだ！'
+    assert_text 'めちゃよかった！'
+
     click_on 'この日報を削除'
     assert_text '日報が削除されました。'
 
-    refute_text '山に行きました'
-    refute_text '山に行きましたが、電車で読書をしました'
+    refute_text '超入門読んだ！'
+    refute_text 'めちゃ良かった！'
   end
 end
